@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cinzel: 'Cinzel', serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --color-gold: #d4af37;
+  --color-gold-muted: #c5a059;
+  --color-blood: #dc2626;
+  --color-blood-dark: #991b1b;
+  --color-obsidian: #0a0a0c;
+  --color-charcoal: #141416;
+  --color-ivory: #f4eedb;
+}
+
+@layer utilities {
+  .font-cinzel {
+    font-family: var(--font-cinzel);
+  }
+  .font-cormorant {
+    font-family: var(--font-cormorant);
+  }
+  .gold-shimmer {
+    background: linear-gradient(135deg, #f4eedb 0%, #d4af37 40%, #ffffff 60%, #c5a059 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .crimson-glow {
+    box-shadow: 0 0 35px -5px rgba(220, 38, 38, 0.35);
+  }
+  .gold-glow {
+    box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a30;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #40404a;
+}

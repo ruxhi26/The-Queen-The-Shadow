@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with authentication and metadata.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique Firebase Auth user ID." },
+        "email": { "type": "string", "description": "User email address." },
+        "displayName": { "type": "string", "description": "User display name." },
+        "photoURL": { "type": "string", "description": "User profile avatar URL." },
+        "createdAt": { "type": "string", "description": "ISO timestamp of account creation." },
+        "role": { "type": "string", "description": "User role: member or writer." }
+      },
+      "required": ["uid", "email"]
+    },
+    "ScriptNote": {
+      "title": "ScriptNote",
+      "description": "User notes and annotations for screenplay acts.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique note ID." },
+        "userId": { "type": "string", "description": "Owner user ID." },
+        "actId": { "type": "string", "description": "Script act identifier (e.g., act-1, act-3)." },
+        "noteText": { "type": "string", "description": "User annotation or dialogue draft." },
+        "createdAt": { "type": "string", "description": "Creation timestamp." },
+        "updatedAt": { "type": "string", "description": "Last update timestamp." }
+      },
+      "required": ["id", "userId", "actId", "noteText"]
+    },
+    "SavedProject": {
+      "title": "SavedProject",
+      "description": "Saved customized YouTube script projects and configurations.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Project ID." },
+        "userId": { "type": "string", "description": "Owner user ID." },
+        "title": { "type": "string", "description": "Selected YouTube title option." },
+        "thumbnailText": { "type": "string", "description": "Custom thumbnail headline." },
+        "tags": { "type": "string", "description": "Custom tags comma-separated." },
+        "createdAt": { "type": "string", "description": "Creation timestamp." }
+      },
+      "required": ["id", "userId", "title"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Persistent Gemini chat messages across Elena, The Shadow, and Director personas.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Message ID." },
+        "userId": { "type": "string", "description": "Owner user ID." },
+        "role": { "type": "string", "description": "Role: user or assistant." },
+        "persona": { "type": "string", "description": "queen, shadow, or director." },
+        "content": { "type": "string", "description": "Message content." },
+        "createdAt": { "type": "string", "description": "Creation timestamp." }
+      },
+      "required": ["id", "userId", "role", "content"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Individual user document."
+    },
+    "/users/{userId}/notes/{noteId}": {
+      "schema": "ScriptNote",
+      "description": "Private screenplay notes for the user."
+    },
+    "/users/{userId}/projects/{projectId}": {
+      "schema": "SavedProject",
+      "description": "Saved project configurations owned by the user."
+    },
+    "/users/{userId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Chat history for the user."
+    }
+  }
+}

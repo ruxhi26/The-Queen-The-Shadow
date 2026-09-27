@@ -1,0 +1,6 @@
+{
+  "name": "The Queen & The Shadow — Studio & Origin Script",
+  "description": "Production studio, cinematic script reader, teleprompter, and visual storyboard for 'The Queen & The Shadow' dark mafia romance origin story.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
